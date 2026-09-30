@@ -1,0 +1,361 @@
+/* ==========================================================
+   Jory Alsufyani – CV  |  CPIT 405 Lab 3
+   ========================================================== */
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+
+:root {
+    --ink: #16142b;
+    --muted: #6b6a80;
+    --primary: #4c3fb1;
+    --primary-dark: #372c8f;
+    --lavender: #ebe8ff;
+    --panel: #f6f6fa;
+    --line: #e6e5f2;
+    --card: #ffffff;
+    --font: "Inter", "Segoe UI", Arial, sans-serif;
+}
+
+/* ---------- Element selectors ---------- */
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+    margin: 0;
+    padding: 0;
+    color: var(--ink);
+    font-family: var(--font);
+    font-size: 16px;
+    line-height: 1.65;
+    background-color: #ecebfb;
+    background-image:
+        radial-gradient(55% 45% at 90% 0%, #b3a7fa 0%, transparent 70%),
+        radial-gradient(45% 40% at 0% 35%, #d8d2ff 0%, transparent 70%),
+        radial-gradient(55% 45% at 85% 80%, #c4bafb 0%, transparent 70%);
+    background-attachment: fixed;
+}
+
+h1, h2, h3 {
+    margin: 0;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+}
+
+p { margin: 0 0 8px; }
+ul { margin: 0; padding: 0; list-style: none; }
+
+a {
+    color: var(--primary);
+    font-weight: 500;
+    text-decoration: none;
+    transition: color 0.2s, background-color 0.2s, box-shadow 0.2s;
+}
+a:hover { color: var(--primary-dark); }
+a:focus-visible { outline: 3px solid #a99cf7; outline-offset: 3px; }
+
+/* ---------- ID selector ---------- */
+#profile-header {
+    padding: 96px 24px 48px;
+    text-align: center;
+}
+
+#profile-header h1 {
+    max-width: 720px;
+    margin: 0 auto;
+    font-size: clamp(2.3rem, 6vw, 3.75rem);
+    font-weight: 700;
+}
+
+/* ---------- Class selectors ---------- */
+.job-title {
+    margin: 16px 0 28px;
+    color: var(--muted);
+    font-size: 1.1rem;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 26px;
+    background-color: var(--primary);
+    border-radius: 8px;
+    color: #fff;
+    font-size: 0.95rem;
+    font-weight: 600;
+    box-shadow: 0 6px 16px rgba(76, 63, 177, 0.3);
+}
+/* Hover effect */
+.btn:hover {
+    background-color: var(--primary-dark);
+    color: #fff;
+    box-shadow: 0 10px 22px rgba(76, 63, 177, 0.4);
+}
+
+/* ---------- (descendant selectors) ---------- */
+nav {
+    position: sticky;
+    top: 14px;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    gap: 2px;
+    width: fit-content;
+    max-width: calc(100% - 32px);
+    margin: 0 auto;
+    padding: 6px;
+    background-color: rgba(255, 255, 255, 0.92);
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    box-shadow: 0 8px 24px rgba(76, 63, 177, 0.12);
+}
+
+nav a {
+    padding: 6px 15px;
+    border-radius: 999px;
+    color: var(--ink);
+    font-size: 0.88rem;
+}
+nav a:hover {
+    background-color: var(--lavender);
+    color: var(--primary-dark);
+}
+
+/* ---------- Layout ---------- */
+.cv-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    max-width: 960px;
+    margin: 48px auto 0;
+    padding: 0 24px 56px;
+}
+
+.cv-section {
+    grid-column: 1 / -1;
+    margin: 0;
+    padding: 44px 40px;
+    background-color: var(--card);
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    border-radius: 20px;
+    box-shadow: 0 20px 50px rgba(76, 63, 177, 0.12);
+    scroll-margin-top: 84px;
+}
+
+#more, #volunteer, #languages, #contact { grid-column: span 1; }
+
+.cv-section h2 {
+    margin-bottom: 26px;
+    font-size: 1.75rem;
+    text-align: center;
+}
+
+.cv-section h3 { font-size: 1.02rem; }
+
+/* ---------- About ---------- */
+#about p {
+    max-width: 640px;
+    margin: 0 auto;
+    color: var(--muted);
+    text-align: center;
+}
+
+/* ---------- Education ---------- */
+.education-item {
+    max-width: 520px;
+    margin: 0 auto;
+    padding: 22px 24px;
+    background-color: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    text-align: center;
+}
+.education-item h3 { margin-bottom: 4px; font-size: 1.15rem; }
+.education-item p { margin-bottom: 2px; color: var(--muted); }
+
+
+/* ---------- Experience ---------- */
+.experience-item {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 24px 28px;
+    background-color: var(--panel);
+    border: 1px solid var(--line);
+    border-left: 5px solid var(--primary);
+    border-radius: 14px;
+    transition: box-shadow 0.25s, background-color 0.25s;
+}
+.experience-item:hover {
+    background-color: #fff;
+    box-shadow: 0 16px 32px rgba(76, 63, 177, 0.15);
+}
+.experience-item h3 { margin-bottom: 4px; font-size: 1.15rem; }
+.experience-list { margin-top: 10px; }
+.experience-list li {
+    position: relative;
+    padding: 3px 0 3px 20px;
+    color: var(--muted);
+    font-size: 0.93rem;
+}
+.experience-list li::before {
+    content: "";
+    position: absolute;
+    left: 2px;
+    top: 13px;
+    width: 7px;
+    height: 7px;
+    background-color: var(--primary);
+    border-radius: 50%;
+}
+
+/* ---------- Skills ---------- */
+.skills-group {
+    margin: 0 0 12px;
+    color: var(--muted);
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-align: center;
+}
+.skills-list + .skills-group { margin-top: 26px; }
+
+.skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+}
+.skills-list li {
+    padding: 6px 16px;
+    background-color: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: transform 0.2s, background-color 0.2s, color 0.2s, border-color 0.2s;
+}
+.skills-list + .skills-group + .skills-list li {
+    background-color: var(--lavender);
+    border-color: transparent;
+    color: var(--primary-dark);
+}
+.skills-list li:hover {
+    transform: translateY(-2px);
+    background-color: var(--primary);
+    border-color: var(--primary);
+    color: #fff;
+}
+
+/* ---------- Projects & awards: feature-style cards ---------- */
+#projects, #awards {
+    display: grid;
+    gap: 16px;
+}
+#projects { grid-template-columns: repeat(3, 1fr); }
+#awards   { grid-template-columns: 1fr 1fr; }
+#projects h2, #awards h2 { grid-column: 1 / -1; margin-bottom: 10px; }
+
+.project-card,
+.award-item {
+    padding: 24px;
+    background-color: var(--panel);
+    border: 1px solid transparent;
+    border-radius: 14px;
+    transition: transform 0.25s, box-shadow 0.25s, background-color 0.25s, border-color 0.25s;
+}
+.project-card:hover,
+.award-item:hover {
+    transform: translateY(-5px);
+    background-color: #fff;
+    border-color: var(--line);
+    box-shadow: 0 16px 32px rgba(76, 63, 177, 0.15);
+}
+
+/* small icon tile above each card */
+.project-card::before,
+.award-item::before {
+    content: "";
+    display: block;
+    width: 34px;
+    height: 34px;
+    margin-bottom: 40px;
+    background-color: var(--lavender);
+    background-image: linear-gradient(135deg, var(--primary) 0 45%, transparent 45%);
+    border-radius: 9px;
+}
+.award-item::before {
+    background-image: linear-gradient(135deg, #f0a92e 0 45%, transparent 45%);
+    background-color: #fff1d0;
+}
+
+.project-card h3,
+.award-item h3 { margin-bottom: 6px; }
+.project-card p,
+.award-item p { color: var(--muted); font-size: 0.9rem; }
+
+.project-year {
+    color: var(--primary) !important;
+    font-size: 0.8rem !important;
+    font-weight: 600;
+}
+
+/* ---------- Lists ---------- */
+.plain-list li {
+    padding: 11px 0;
+    border-bottom: 1px solid var(--line);
+    font-weight: 500;
+}
+.plain-list li:last-child { border-bottom: none; }
+.plain-list span {
+    display: block;
+    color: var(--muted);
+    font-size: 0.88rem;
+    font-weight: 400;
+}
+
+/* ---------- Contact: input-style rows ---------- */
+#contact p {
+    margin-bottom: 10px;
+    padding: 10px 14px;
+    background-color: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    color: var(--muted);
+    font-size: 0.9rem;
+}
+#contact p:hover { border-color: #b3a7fa; background-color: #fff; }
+
+/* ---------- Footer ---------- */
+footer {
+    padding: 28px 24px 40px;
+    color: var(--muted);
+    text-align: center;
+    font-size: 0.88rem;
+}
+footer p { margin: 0; }
+
+/* ---------- Responsive (media queries) ---------- */
+@media (max-width: 860px) {
+    #projects { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 640px) {
+    #profile-header { padding: 64px 20px 32px; }
+
+    nav {
+        justify-content: flex-start;
+        overflow-x: auto;
+        width: auto;
+    }
+    nav a { white-space: nowrap; }
+
+    .cv-container { grid-template-columns: 1fr; gap: 18px; padding: 0 14px 40px; }
+    #more, #volunteer, #languages, #contact { grid-column: 1 / -1; }
+    .cv-section { padding: 30px 20px; }
+    .cv-section h2 { font-size: 1.5rem; }
+    #projects, #awards { grid-template-columns: 1fr; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    * { transition: none !important; }
+}
