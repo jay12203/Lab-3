@@ -9,6 +9,11 @@
 
 <body>
 
+    <div class="top-controls">
+        <button type="button" id="theme-toggle" class="control-btn">Dark Mode</button>
+        <button type="button" id="print-btn" class="control-btn">Print / Save as PDF</button>
+    </div>
+
     <header id="profile-header">
         <h1>Jory Hamad Alsufyani</h1>
         <p class="job-title">Senior Information Technology Student · Jeddah, Saudi Arabia</p>
@@ -33,10 +38,15 @@
             <p>
                 Information Technology student with a strong background in networking
                 and system design, and programming skills in Python, Java, and SQL.
-                Hands-on experience across IT operations and software development,
-                from backend systems to hackathon prototypes. Quick to learn,
-                detail-oriented, and effective both independently and in a team.
+                Hands-on experience across IT operations and software development.
             </p>
+            <p id="about-more" class="about-more" hidden>
+                I have worked on backend development, database integration, IT support,
+                and interactive prototypes. I also enjoy participating in hackathons
+                and collaborating with teams to turn ideas into practical solutions.
+            </p>
+            <button type="button" id="about-toggle" class="control-btn" aria-expanded="false"
+                    aria-controls="about-more">Show More</button>
         </section>
 
         <section id="education" class="cv-section">
@@ -97,37 +107,12 @@
 
         <section id="projects" class="cv-section">
             <h2>Projects</h2>
-
-            <article class="project-card">
-                <h3>Character Scan</h3>
-                <p class="project-year">2026</p>
-                <p>
-                    Built the backend of an interactive system for Tech Hub Day using
-                    Node.js and Render. Handled real-time data processing and system
-                    integration to display participant interactions live during the event.
-                </p>
-            </article>
-
-            <article class="project-card">
-                <h3>IELTS Equivalency Request System</h3>
-                <p class="project-year">2025</p>
-                <p>
-                    Built an automated workflow for IELTS equivalency requests using a
-                    three-tier architecture, with automatic score validation and reliable
-                    submission, approval, and status tracking.
-                </p>
-            </article>
-
-            <article class="project-card">
-                <h3>Cinema Management System</h3>
-                <p class="project-year">2024</p>
-                <p>
-                    Designed a cinema booking system using DFDs, use case, sequence, class,
-                    and state diagrams. Features include recommendations, seat upgrades,
-                    split payments, and snack pre-ordering, based on customer surveys and
-                    a VOX Cinemas interview.
-                </p>
-            </article>
+            <div class="project-filters" aria-label="Filter projects">
+                <button type="button" class="filter-btn active" data-filter="All" aria-pressed="true">All</button>
+                <button type="button" class="filter-btn" data-filter="Web" aria-pressed="false">Web</button>
+                <button type="button" class="filter-btn" data-filter="Programming" aria-pressed="false">Programming</button>
+            </div>
+            <div id="project-list" class="project-list" aria-live="polite"></div>
         </section>
 
         <section id="awards" class="cv-section">
@@ -189,15 +174,19 @@
                 Phone:
                 <a href="tel:+966565160987">+966 56 516 0987</a>
             </p>
-
+            
             <p>
-                GitHub:
-                <a href="#">github.com/username</a>
-            </p>
+    GitHub:
+    <a href="https://github.com/jay12203"
+       target="_blank"
+       rel="noopener noreferrer">
+        github.com/jay12203
+    </a>
+</p>
 
             <p>
                 LinkedIn:
-                <a href="#">Jory Alsufyani</a>
+                <a href="https://www.linkedin.com/in/jory-alsufyani/" target="_blank" rel="noopener noreferrer">Jory Alsufyani</a>
             </p>
         </section>
 
@@ -207,5 +196,5 @@
         <p>© 2026 Jory Hamad Alsufyani</p>
     </footer>
 
-</body>
+    <script src="script.js"></script>\n</body>
 </html>
