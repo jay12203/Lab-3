@@ -359,3 +359,261 @@ footer p { margin: 0; }
     html { scroll-behavior: auto; }
     * { transition: none !important; }
 }
+
+
+/* ==========================================================
+   Lab 5 – JavaScript DOM enhancements
+   ========================================================== */
+
+/* Shared controls */
+.top-controls {
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: 10px;
+    max-width: 960px;
+    margin: 18px auto 0;
+    padding: 0 24px;
+}
+
+.control-btn,
+.filter-btn {
+    border: 1px solid var(--primary);
+    border-radius: 8px;
+    padding: 9px 16px;
+    background: var(--primary);
+    color: #fff;
+    font: inherit;
+    font-size: 0.88rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s, transform 0.2s;
+}
+
+.control-btn:hover,
+.filter-btn:hover {
+    background: var(--primary-dark);
+    transform: translateY(-1px);
+}
+
+.control-btn:focus-visible,
+.filter-btn:focus-visible {
+    outline: 3px solid #a99cf7;
+    outline-offset: 3px;
+}
+
+#about-more[hidden] {
+    display: none;
+}
+
+#about-more {
+    margin-top: 12px !important;
+}
+
+#about-toggle {
+    display: block;
+    margin: 18px auto 0;
+}
+
+.project-filters {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 0 0 8px;
+}
+
+.filter-btn {
+    background: var(--card);
+    color: var(--primary);
+}
+
+.filter-btn.active,
+.filter-btn[aria-pressed="true"] {
+    background: var(--primary);
+    color: #fff;
+}
+
+.project-list {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.project-card {
+    min-width: 0;
+}
+
+.project-category {
+    display: inline-block;
+    margin: 0 0 10px;
+    padding: 4px 10px;
+    border-radius: 999px;
+    background: var(--lavender);
+    color: var(--primary-dark) !important;
+    font-size: 0.75rem !important;
+    font-weight: 600;
+}
+
+.project-technologies {
+    margin-top: 12px !important;
+    font-size: 0.82rem !important;
+}
+
+.project-technologies strong {
+    color: var(--ink);
+}
+
+/* Dark theme: toggled on the body element with JavaScript */
+body.dark-mode {
+    --ink: #f1efff;
+    --muted: #c0bdd5;
+    --primary: #a99cf7;
+    --primary-dark: #c0b7ff;
+    --lavender: #393451;
+    --panel: #29263a;
+    --line: #45405c;
+    --card: #211f30;
+    background-color: #171522;
+    background-image:
+        radial-gradient(55% 45% at 90% 0%, #393252 0%, transparent 70%),
+        radial-gradient(45% 40% at 0% 35%, #29253e 0%, transparent 70%),
+        radial-gradient(55% 45% at 85% 80%, #302a49 0%, transparent 70%);
+}
+
+body.dark-mode nav {
+    background-color: rgba(33, 31, 48, 0.95);
+}
+
+body.dark-mode .project-card:hover,
+body.dark-mode .award-item:hover,
+body.dark-mode .experience-item:hover,
+body.dark-mode #contact p:hover {
+    background-color: #302c43;
+}
+
+body.dark-mode .filter-btn {
+    background: var(--card);
+    color: var(--primary);
+}
+
+body.dark-mode .filter-btn.active,
+body.dark-mode .filter-btn[aria-pressed="true"] {
+    background: var(--primary);
+    color: #211f30;
+}
+
+body.dark-mode .project-category {
+    background: var(--lavender);
+    color: #ded8ff !important;
+}
+
+body.dark-mode .project-technologies strong {
+    color: var(--ink);
+}
+
+/* Print / Save as PDF */
+@media print {
+    @page {
+        margin: 1.2cm;
+    }
+
+    body {
+        background: #fff !important;
+        background-image: none !important;
+        color: #111 !important;
+        font-size: 10pt;
+    }
+
+    .top-controls,
+    nav,
+    #about-toggle,
+    .project-filters,
+    footer {
+        display: none !important;
+    }
+
+    #profile-header {
+        padding: 12px 0 20px;
+    }
+
+    .cv-container {
+        display: block;
+        max-width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    .cv-section {
+        break-inside: avoid;
+        margin: 0 0 12px;
+        padding: 16px;
+        border: 1px solid #ddd !important;
+        border-radius: 0;
+        box-shadow: none !important;
+        background: #fff !important;
+        color: #111 !important;
+    }
+
+    .cv-section h2,
+    .cv-section h3,
+    .project-technologies strong {
+        color: #111 !important;
+    }
+
+    .cv-section p,
+    .cv-section li,
+    .project-card p,
+    .award-item p,
+    #about p {
+        color: #333 !important;
+    }
+
+    #about-more[hidden] {
+        display: block !important;
+    }
+
+    #projects {
+        display: block;
+    }
+
+    .project-list {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+    }
+
+    .project-card,
+    .award-item,
+    .education-item,
+    .experience-item {
+        break-inside: avoid;
+        box-shadow: none !important;
+        background: #fff !important;
+        border: 1px solid #ddd !important;
+    }
+
+    a {
+        color: #111 !important;
+        text-decoration: none;
+    }
+}
+
+@media (max-width: 860px) {
+    .project-list {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 640px) {
+    .top-controls {
+        justify-content: center;
+        padding: 0 14px;
+    }
+
+    .project-list {
+        grid-template-columns: 1fr;
+    }
+}
